@@ -35,10 +35,8 @@ jobs:
       matrix:
         target:
           [
-            "8_4_15-fpm-buster",
-            "8_4_15-nginx-buster",
-            "8_4_15-fpm-alpine3_18",
-            "8_4_15-nginx-alpine3_18",
+            "8_4_15-fpm-alpine3_21",
+            "8_4_15-nginx-alpine3_21",
           ]
     env:
       DOCKER_HUB_PUSH: ${{ (secrets.DOCKER_HUB_USERNAME && secrets.DOCKER_HUB_TOKEN) && 'true' || 'false' }}

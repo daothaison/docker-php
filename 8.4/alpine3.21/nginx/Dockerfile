@@ -1,6 +1,6 @@
 # NOTE: This file was generated via generate.sh. Don't edit it directly
 
-FROM php:8.4.15-fpm-alpine3.18
+FROM php:8.4.15-fpm-alpine3.21
 
 ENV RUN_DEPS \
     zlib \
@@ -44,13 +44,20 @@ COPY rootfs /
 
 RUN set -x \
     && addgroup -g 101 -S nginx \
-    && adduser -S -D -H -u 101 -h /var/cache/nginx -s /sbin/nologin -G nginx -g nginx nginx
+    && adduser -S -D -H -u 101 -h /var/cache/nginx -s /sbin/nologin -g nginx -G www-data nginx
 
-RUN apk add --no-cache fcgi
+RUN apk add --no-cache nginx gettext
 
-# For backward compatibility
-RUN ln -s /usr/local/bin/docker-php-entrypoint /usr/local/bin/php-fpm-entrypoint
+COPY --from=crazymax/alpine-s6-dist:3.15-3.0.0.2 / /
+
+RUN mkdir -p /run/nginx /run/php \
+    && ln -sf /dev/stdout /var/log/nginx/access.log \
+    && ln -sf /dev/stderr /var/log/nginx/error.log
+
+ENV DOCUMENT_ROOT=/var/www/html
+
+EXPOSE 80 443
 
 ENTRYPOINT [ "docker-php-entrypoint" ]
 
-CMD [ "php-fpm" ]
+CMD [ "/init", "nginx", "-g", "daemon off;" ]

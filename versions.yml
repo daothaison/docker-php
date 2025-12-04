@@ -2,16 +2,13 @@ php_versions:
 - 8.4.15
 
 alpine_releases:
-- alpine3.18
-
-debian_releases:
-- buster
+- alpine3.21
 
 default_php_version: 8.4
 default_php_8_version: 8.4
 default_variant: fpm
 default_distro: debian
-default_alpine_release: alpine3.18
+default_alpine_release: alpine3.21
 default_debian_release: bullseye
 
 platforms:
