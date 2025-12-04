@@ -9,7 +9,7 @@ debian_releases:
 
 default_php_version: 8.4
 default_php_8_version: 8.4
-default_variant: cli
+default_variant: fpm
 default_distro: debian
 default_alpine_release: alpine3.18
 default_debian_release: bullseye

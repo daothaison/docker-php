@@ -8,27 +8,6 @@ variable "REPO" {
     default = "daothaison/php"
 }
 
-target "8_4_15-cli-buster" {
-    context = "./8.4/buster/cli"
-    cache-from = [
-        "${REGISTRY}/${REPO}:8.4-cli-buster"
-    ]
-    tags = [
-        "${REGISTRY}/${REPO}:8-cli-buster",
-        "${REGISTRY}/${REPO}:8-buster",
-        "${REGISTRY}/${REPO}:8.4-cli-buster",
-        "${REGISTRY}/${REPO}:8.4-buster",
-        "${REGISTRY}/${REPO}:8.4.15-cli-buster",
-        "${REGISTRY}/${REPO}:8.4.15-buster",
-        "${REGISTRY}/${REPO}:cli-buster",
-        "${REGISTRY}/${REPO}:buster",
-    ]
-}
-
-target "8_4-cli-buster" {
-    inherits = ["8_4_15-cli-buster"]
-}
-
 target "8_4_15-fpm-buster" {
     context = "./8.4/buster/fpm"
     cache-from = [
@@ -36,9 +15,13 @@ target "8_4_15-fpm-buster" {
     ]
     tags = [
         "${REGISTRY}/${REPO}:8-fpm-buster",
+        "${REGISTRY}/${REPO}:8-buster",
         "${REGISTRY}/${REPO}:8.4-fpm-buster",
+        "${REGISTRY}/${REPO}:8.4-buster",
         "${REGISTRY}/${REPO}:8.4.15-fpm-buster",
+        "${REGISTRY}/${REPO}:8.4.15-buster",
         "${REGISTRY}/${REPO}:fpm-buster",
+        "${REGISTRY}/${REPO}:buster",
     ]
 }
 
@@ -63,35 +46,6 @@ target "8_4-nginx-buster" {
     inherits = ["8_4_15-nginx-buster"]
 }
 
-target "8_4_15-cli-alpine3_18" {
-    context = "./8.4/alpine3.18/cli"
-    cache-from = [
-        "${REGISTRY}/${REPO}:8.4-cli-alpine3.18"
-    ]
-    tags = [
-        "${REGISTRY}/${REPO}:8-cli-alpine3.18",
-        "${REGISTRY}/${REPO}:8-alpine3.18",
-        "${REGISTRY}/${REPO}:8-cli-alpine",
-        "${REGISTRY}/${REPO}:8-alpine",
-        "${REGISTRY}/${REPO}:8.4-cli-alpine3.18",
-        "${REGISTRY}/${REPO}:8.4-alpine3.18",
-        "${REGISTRY}/${REPO}:8.4-cli-alpine",
-        "${REGISTRY}/${REPO}:8.4-alpine",
-        "${REGISTRY}/${REPO}:8.4.15-cli-alpine3.18",
-        "${REGISTRY}/${REPO}:8.4.15-alpine3.18",
-        "${REGISTRY}/${REPO}:8.4.15-cli-alpine",
-        "${REGISTRY}/${REPO}:8.4.15-alpine",
-        "${REGISTRY}/${REPO}:cli-alpine3.18",
-        "${REGISTRY}/${REPO}:alpine3.18",
-        "${REGISTRY}/${REPO}:cli-alpine",
-        "${REGISTRY}/${REPO}:alpine",
-    ]
-}
-
-target "8_4-cli-alpine3_18" {
-    inherits = ["8_4_15-cli-alpine3_18"]
-}
-
 target "8_4_15-fpm-alpine3_18" {
     context = "./8.4/alpine3.18/fpm"
     cache-from = [
@@ -99,13 +53,21 @@ target "8_4_15-fpm-alpine3_18" {
     ]
     tags = [
         "${REGISTRY}/${REPO}:8-fpm-alpine3.18",
+        "${REGISTRY}/${REPO}:8-alpine3.18",
         "${REGISTRY}/${REPO}:8-fpm-alpine",
+        "${REGISTRY}/${REPO}:8-alpine",
         "${REGISTRY}/${REPO}:8.4-fpm-alpine3.18",
+        "${REGISTRY}/${REPO}:8.4-alpine3.18",
         "${REGISTRY}/${REPO}:8.4-fpm-alpine",
+        "${REGISTRY}/${REPO}:8.4-alpine",
         "${REGISTRY}/${REPO}:8.4.15-fpm-alpine3.18",
+        "${REGISTRY}/${REPO}:8.4.15-alpine3.18",
         "${REGISTRY}/${REPO}:8.4.15-fpm-alpine",
+        "${REGISTRY}/${REPO}:8.4.15-alpine",
         "${REGISTRY}/${REPO}:fpm-alpine3.18",
+        "${REGISTRY}/${REPO}:alpine3.18",
         "${REGISTRY}/${REPO}:fpm-alpine",
+        "${REGISTRY}/${REPO}:alpine",
     ]
 }
 

@@ -36,7 +36,7 @@ distro_releases() {
 }
 
 variants() {
-    echo cli fpm nginx
+    echo fpm nginx
 }
 
 # Generate dockerfile for a tag

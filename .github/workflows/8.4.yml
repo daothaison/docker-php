@@ -35,10 +35,8 @@ jobs:
       matrix:
         target:
           [
-            "8_4_15-cli-buster",
             "8_4_15-fpm-buster",
             "8_4_15-nginx-buster",
-            "8_4_15-cli-alpine3_18",
             "8_4_15-fpm-alpine3_18",
             "8_4_15-nginx-alpine3_18",
           ]
