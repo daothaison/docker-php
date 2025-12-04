@@ -9,6 +9,7 @@ on:
   push:
     paths:
       - 8.4/**
+      - .github/workflows/8.4.yml
 
 permissions:
   contents: read
