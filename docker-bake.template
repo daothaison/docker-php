@@ -3,5 +3,5 @@ variable "REGISTRY" {
 }
 
 variable "REPO" {
-    default = "sun-asterisk-research/php"
+    default = "daothaison/php"
 }
